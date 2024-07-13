@@ -29,9 +29,16 @@ namespace AutoDoors.GameClasses
             if (AutoDoorPlugin.Instance.IsActive && validPlayer && updateIntervalPassed)
             {
                 AutoDoorPlugin.Instance.LastUpdate = timeNow;
-
-                var radius = player.m_maxInteractDistance;
+                
+                var radius = 0;
                 var rsq = radius * radius;
+
+                if (AutoDoorPlugin.Instance.Cfg.InteractDistance > 0)
+                {
+                    radius = AutoDoorPlugin.Instance.Cfg.InteractDistance;
+                } else {
+                    radius = player.m_maxInteractDistance;
+                }
 
                 // remove any invalid doors
                 AutoDoorPlugin.Instance.TrackedDoors.RemoveAll(td => !td.IsValid);
