@@ -23,6 +23,12 @@ namespace AutoDoors
         public bool DisableInCrypt { get => disableInCrypt.Value; }
         ConfigEntry<bool> disableInCrypt;
 
+        /// <summary>
+        /// Sets interact distance
+        /// </summary>
+        public bool InteractDistance { get => interactDistance.Value; }
+        ConfigEntry<bool> interactDistance;
+
         #endregion
 
         #region Methods
